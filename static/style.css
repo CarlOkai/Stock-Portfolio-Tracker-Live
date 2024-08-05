@@ -1,0 +1,238 @@
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #333; /* Dark text color for readability */
+    line-height: 1.5; /* Improved line spacing */
+    background: #f2f2f7; /* Light background color for the whole page */
+    margin: 0;
+    padding: 0;
+}
+.news-article {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.news-article h3 {
+    margin: 0 0 5px;
+}
+
+.news-article p {
+    margin: 0;
+}
+
+
+/* Container for stock boxes */
+#ticker-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows the items to wrap onto multiple lines */
+    gap: 15px; /* Increased space between the boxes */
+    justify-content: center; /* Center items horizontally */
+    padding: 20px; /* Padding around the container */
+    background: #f2f2f7; /* Light background color for the container */
+}
+
+/* Individual stock box */
+.stock-box {
+    width: 200px; /* Set width for the boxes */
+    height: 200px; /* Set height for the boxes */
+    border: 1px solid #dcdcdc; /* Lighter border color */
+    border-radius: 12px; /* Rounded corners */
+    margin: 10px; /* Space between the boxes */
+    padding: 20px; /* Padding inside the box */
+    background: #ffffff; /* White background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation effect */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+    text-align: center; /* Center align text */
+    cursor: pointer; /* Indicate that the box is clickable */
+}
+
+/* Color classes for price indicators */
+.dark-red {
+    color: #e74c3c; /* Slightly lighter dark red for negative trends */
+}
+
+.red {
+    color: #c0392b; /* Red for negative trends */
+}
+
+.gray {
+    color: #7f8c8d; /* Gray for neutral */
+}
+
+.green {
+    color: #27ae60; /* Green for positive trends */
+}
+
+.dark-green {
+    color: #2ecc71; /* Lighter dark green for positive trends */
+}
+
+/* Flash effect classes */
+.updated, .red-flash, .green-flash, .gray-flash {
+    transition: background-color 0.5s; /* Smooth background color transition */
+}
+
+.updated {
+    background-color: #ffe6e6 !important; /* Light red background for updates */
+}
+
+.red-flash {
+    background-color: #f9dcdc !important; /* Very light pink for negative trend */
+}
+
+.green-flash {
+    background-color: #d9fdd9 !important; /* Very light green for positive trend */
+}
+
+.gray-flash {
+    background-color: #f5f5f5 !important; /* Very light gray for neutral */
+}
+
+/* Ensure the modal is displayed correctly */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.5); /* Dark background with opacity */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto; /* Center the modal */
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 80%; /* Adjust width as needed */
+    max-width: 800px; /* Set a maximum width */
+}
+
+canvas {
+    width: 100% !important; /* Ensure the canvas takes full width */
+    height: 400px !important; /* Set a height for better display */
+}
+
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Modern Search Box with iOS Feel */
+.search-form {
+    margin: 20px; /* Margin around the form */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    background-color: #ffffff; /* White background */
+    overflow: hidden; /* Rounded corners effect */
+    max-width: 300px; /* Set a max-width for a small, compact box */
+    margin: auto; /* Center horizontally if desired */
+}
+
+.search-input {
+    border: none;
+    padding: 10px 14px; /* Padding for a small input */
+    border-radius: 10px 0 0 10px; /* Rounded corners on the left */
+    outline: none;
+    font-size: 14px; /* Smaller font size */
+    color: #333; /* Dark text color */
+    background-color: #f8f8f8; /* Light gray background */
+    flex: 1; /* Takes up remaining space */
+}
+
+.search-button {
+    border: none;
+    padding: 10px 14px; /* Match padding for consistency */
+    background-color: #f0f0f0; /* Very light gray for the button */
+    color: #333; /* Dark text color */
+    font-size: 14px; /* Match font size */
+    border-radius: 0 10px 10px 0; /* Rounded corners on the right */
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.search-button:hover {
+    background-color: #e0e0e0; /* Slightly darker gray on hover */
+    transform: scale(1.02);
+}
+
+.search-button:active {
+    background-color: #d0d0d0; /* Even darker gray on active */
+}
+
+/* Placeholder text styling */
+.search-input::placeholder {
+    color: #aaa; /* Light gray placeholder text */
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Center text horizontally */
+    
+}
+/* General button styling */
+.remove-btn {
+    display: inline-block;
+    background: #fff; /* White background */
+    color: #333; /* Dark text color */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 8px 16px; /* Padding around the text */
+    font-size: 0.9em; /* Adjust font size as needed */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    text-align: center; /* Center align text inside button */
+}
+
+.remove-btn:hover {
+    background: #f7f7f7; /* Slightly darker background on hover */
+    border-color: #ccc; /* Darker border on hover */
+    color: #000; /* Darker text color on hover */
+}
+
+.remove-btn:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+
+.remove-btn:active {
+    background: #e0e0e0; /* Even darker background when button is pressed */
+    border-color: #bbb; /* Even darker border when button is pressed */
+}
+#chart-controls {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.chart-btn {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.chart-btn:hover {
+    background-color: #f0f0f0;
+    border-color: #bbb;
+}

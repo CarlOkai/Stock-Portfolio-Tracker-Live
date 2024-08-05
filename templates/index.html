@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Portfolio Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+    <h1>Stock Portfolio Tracker</h1>
+    </div>
+    
+    <form id="add-ticker-form" class="search-form">
+        <div class="search-container">
+            <input type="text" id="new-ticker" class="search-input" placeholder="Enter ticker symbol" required>
+            <button type="submit" class="search-button">Add Ticker</button>
+        </div>
+    </form>
+    
+    <div class="container">
+    <p>Next update in: <span id="counter">15</span> seconds</p>
+    </div>
+    <div id="ticker-grid"></div>
+
+    <div id="chart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="chart-controls">
+                <button class="chart-btn" data-period="1mo">1 Month</button> <!-- Button to display 1 month data on the chart -->
+                <button class="chart-btn" data-period="1y">1 Year</button> <!-- Button to display 1 year data on the chart -->
+            </div>
+            <canvas id="stock-chart"></canvas>
+            <div id="news-content"></div> <!-- Container for displaying news articles -->
+        </div>
+    </div>
+</body>
+</html>
