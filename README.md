@@ -14,8 +14,8 @@ A web application for tracking stock prices and visualizing historical data. Use
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/CarlOkai/stock-portfolio-tracker.git
-cd stock-portfolio-tracker
+git clone https://github.com/CarlOkai/Stock-Portfolio-Tracker.git
+cd Stock-Portfolio-Tracker
 ```
 
 ### Set Up the Virtual Environment
