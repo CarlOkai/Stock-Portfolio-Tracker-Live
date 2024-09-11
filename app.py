@@ -13,6 +13,9 @@ load_dotenv()
 # Initialise Flask application
 app = Flask(__name__, template_folder='templates')
 
+if __name__ == '__main__':
+    app.run(debug=False, host='0.0.0.0')
+    
 #Route for the home page
 @app.route('/')
 def index():
